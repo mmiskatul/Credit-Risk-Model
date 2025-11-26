@@ -18,3 +18,15 @@ saving_account =st.selectbox("Saving Accounts",["little","moderate","rich","quit
 Checking_account =st.selectbox("Checking Accounts",["little","moderate","rich","quite rich"])
 credit_amount =st.number_input("Credit Amount",min_value=0,value=1000) 
 duration =st.number_input("Duration (month)",min_value=1,value=12) 
+
+
+input_df =pd.DatFrame({
+    "Age":[age],
+    "Sex":[encoders["Sex"].transform([sex])[0]], 
+    "Job":[Job],
+    "Housing":[encoders["Housing"].transform([housing])[0]], 
+    "Saving accounts":[encoders["Saving Account"].transform([saving_account])[0]], 
+    "Cheking accounts":[encoders["Checking Account"].transform([Checking_account])[0]], 
+    "Credit amount":[credit_amount] ,
+    "Duration":[duration]
+})
