@@ -1,3 +1,6 @@
+import utils.http_session
+import utils.transport
+import utils.session
 import streamlit as st 
 import pandas as pd 
 import joblib 
@@ -29,4 +32,12 @@ input_df =pd.DatFrame({
     "Cheking accounts":[encoders["Checking Account"].transform([Checking_account])[0]], 
     "Credit amount":[credit_amount] ,
     "Duration":[duration]
-})
+})  
+
+if st.button("Predict Risk"): 
+    pred =model.predict(input_df)[0] 
+
+    if pred==1: 
+        st.success("The Prediction Credit risk is :**GOOD**") 
+    else : 
+        st.error("The Prediction Credit risk is :**BAD**")
